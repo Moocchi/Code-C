@@ -1,37 +1,29 @@
 #include <stdio.h>
 
-void input_array(float a[], int jumlah_elemen, float *total_nilai) {
-    for (int i = 0; i < jumlah_elemen; i++) {
-        printf("Masukkan nilai A[%d] : ", i + 1);
-        float input_user;
-        scanf("%f", &input_user);
-        a[i] = input_user;
-        *total_nilai += (int)input_user;
-    }
-}
-
-void output_array(float a[], int jumlah_elemen, float hasil) {
-    printf("\n");
-    for (int i = 0; i < jumlah_elemen; i++) {
-        printf("A[%d]: %.2f\n", i + 1, a[i]);
-    }
-    printf("Rata - ratanya adalah : %.2f\n", hasil);
-}
-
 int main() {
-    int jumlah_elemen;
-    system("cls");
+    int a[100];
+    int ya;
+
     printf("Masukkan jumlah elemen: ");
-    scanf("%d", &jumlah_elemen);
+    scanf("%d", &ya);
 
-    float a[jumlah_elemen];
-    float total_nilai = 0;
+    for (int i = 0; i < ya; i++) {
+        printf("Masukkan Nilai A[%d]: ", i + 1);
+        scanf("%d", &a[i]);
+    }
 
-    input_array(a, jumlah_elemen, &total_nilai);
-    
-    float hasil = total_nilai / jumlah_elemen;
+    printf("\nArray:\n");
+    for (int i = 0; i < ya; i++) {
+        printf("A[%d] : %d\n", i + 1, a[i]);
+    }
 
-    output_array(a, jumlah_elemen, hasil);
+    int total_nilai = 0;
+    for (int i = 0; i < ya; i++) {
+        total_nilai += a[i];
+    }
+
+    float hasil = (float)total_nilai / ya;
+    printf("Rata - ratanya adalah : %.2f\n", hasil);
 
     return 0;
 }
